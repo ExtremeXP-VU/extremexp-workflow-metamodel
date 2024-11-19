@@ -91,7 +91,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="#//Operator"/>
   <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="#//Operator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" lowerBound="1"
         upperBound="-1" eType="#//Condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Inclusive" eSuperTypes="#//Operator">

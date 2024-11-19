@@ -100,7 +100,7 @@
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Parallel"/>
     <genClasses ecoreClass="workflow.ecore#//Exclusive">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Exclusive/condition"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Exclusive/conditions"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Inclusive">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Inclusive/conditions"/>
