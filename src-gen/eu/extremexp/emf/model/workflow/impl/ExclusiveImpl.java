@@ -26,21 +26,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link eu.extremexp.emf.model.workflow.impl.ExclusiveImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.impl.ExclusiveImpl#getConditions <em>Conditions</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getConditions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Condition> condition;
+	protected EList<Condition> conditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,12 +66,12 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Condition> getCondition() {
-		if (condition == null) {
-			condition = new EObjectContainmentEList<Condition>(Condition.class, this,
-					WorkflowPackage.EXCLUSIVE__CONDITION);
+	public EList<Condition> getConditions() {
+		if (conditions == null) {
+			conditions = new EObjectContainmentEList<Condition>(Condition.class, this,
+					WorkflowPackage.EXCLUSIVE__CONDITIONS);
 		}
-		return condition;
+		return conditions;
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case WorkflowPackage.EXCLUSIVE__CONDITION:
-			return ((InternalEList<?>) getCondition()).basicRemove(otherEnd, msgs);
+		case WorkflowPackage.EXCLUSIVE__CONDITIONS:
+			return ((InternalEList<?>) getConditions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -96,8 +96,8 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case WorkflowPackage.EXCLUSIVE__CONDITION:
-			return getCondition();
+		case WorkflowPackage.EXCLUSIVE__CONDITIONS:
+			return getConditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,9 +111,9 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case WorkflowPackage.EXCLUSIVE__CONDITION:
-			getCondition().clear();
-			getCondition().addAll((Collection<? extends Condition>) newValue);
+		case WorkflowPackage.EXCLUSIVE__CONDITIONS:
+			getConditions().clear();
+			getConditions().addAll((Collection<? extends Condition>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +127,8 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case WorkflowPackage.EXCLUSIVE__CONDITION:
-			getCondition().clear();
+		case WorkflowPackage.EXCLUSIVE__CONDITIONS:
+			getConditions().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -142,8 +142,8 @@ public class ExclusiveImpl extends OperatorImpl implements Exclusive {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case WorkflowPackage.EXCLUSIVE__CONDITION:
-			return condition != null && !condition.isEmpty();
+		case WorkflowPackage.EXCLUSIVE__CONDITIONS:
+			return conditions != null && !conditions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

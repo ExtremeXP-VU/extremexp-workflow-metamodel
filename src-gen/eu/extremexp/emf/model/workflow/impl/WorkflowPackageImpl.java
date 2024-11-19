@@ -942,7 +942,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExclusive_Condition() {
+	public EReference getExclusive_Conditions() {
 		return (EReference) exclusiveEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1687,7 +1687,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		parallelEClass = createEClass(PARALLEL);
 
 		exclusiveEClass = createEClass(EXCLUSIVE);
-		createEReference(exclusiveEClass, EXCLUSIVE__CONDITION);
+		createEReference(exclusiveEClass, EXCLUSIVE__CONDITIONS);
 
 		inclusiveEClass = createEClass(INCLUSIVE);
 		createEReference(inclusiveEClass, INCLUSIVE__CONDITIONS);
@@ -1970,7 +1970,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		initEClass(exclusiveEClass, Exclusive.class, "Exclusive", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExclusive_Condition(), this.getCondition(), null, "condition", null, 1, -1, Exclusive.class,
+		initEReference(getExclusive_Conditions(), this.getCondition(), null, "conditions", null, 1, -1, Exclusive.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -979,13 +979,13 @@ public interface WorkflowPackage extends EPackage {
 	int EXCLUSIVE = 19;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE__CONDITION = OPERATOR_FEATURE_COUNT + 0;
+	int EXCLUSIVE__CONDITIONS = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive</em>' class.
@@ -2713,15 +2713,15 @@ public interface WorkflowPackage extends EPackage {
 	EClass getExclusive();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.Exclusive#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.Exclusive#getConditions <em>Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Condition</em>'.
-	 * @see eu.extremexp.emf.model.workflow.Exclusive#getCondition()
+	 * @return the meta object for the containment reference list '<em>Conditions</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Exclusive#getConditions()
 	 * @see #getExclusive()
 	 * @generated
 	 */
-	EReference getExclusive_Condition();
+	EReference getExclusive_Conditions();
 
 	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Inclusive <em>Inclusive</em>}'.
@@ -3975,12 +3975,12 @@ public interface WorkflowPackage extends EPackage {
 		EClass EXCLUSIVE = eINSTANCE.getExclusive();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXCLUSIVE__CONDITION = eINSTANCE.getExclusive_Condition();
+		EReference EXCLUSIVE__CONDITIONS = eINSTANCE.getExclusive_Conditions();
 
 		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.InclusiveImpl <em>Inclusive</em>}' class.

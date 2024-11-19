@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link eu.extremexp.emf.model.workflow.Exclusive#getCondition <em>Condition</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.Exclusive#getConditions <em>Conditions</em>}</li>
  * </ul>
  *
  * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExclusive()
@@ -22,15 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Exclusive extends Operator {
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.
 	 * The list contents are of type {@link eu.extremexp.emf.model.workflow.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition</em>' containment reference list.
-	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExclusive_Condition()
+	 * @return the value of the '<em>Conditions</em>' containment reference list.
+	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExclusive_Conditions()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Condition> getCondition();
+	EList<Condition> getConditions();
 
 } // Exclusive
