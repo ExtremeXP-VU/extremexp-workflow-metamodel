@@ -1926,10 +1926,10 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(linkEClass, Link.class, "Link", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLink_Output(), this.getNode(), null, "output", null, 0, 1, Link.class, !IS_TRANSIENT,
+		initEReference(getLink_Output(), this.getNode(), null, "output", null, 1, 1, Link.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getLink_Input(), this.getNode(), null, "input", null, 0, 1, Link.class, !IS_TRANSIENT,
+		initEReference(getLink_Input(), this.getNode(), null, "input", null, 1, 1, Link.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

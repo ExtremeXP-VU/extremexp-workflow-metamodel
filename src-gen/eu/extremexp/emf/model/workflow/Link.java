@@ -29,7 +29,7 @@ public interface Link extends EObject {
 	 * @return the value of the '<em>Output</em>' reference.
 	 * @see #setOutput(Node)
 	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getLink_Output()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Node getOutput();
@@ -51,7 +51,7 @@ public interface Link extends EObject {
 	 * @return the value of the '<em>Input</em>' reference.
 	 * @see #setInput(Node)
 	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getLink_Input()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Node getInput();
