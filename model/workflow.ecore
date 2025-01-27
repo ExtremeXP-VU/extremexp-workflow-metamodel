@@ -115,6 +115,8 @@
         eType="#//ParameterType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workflow" upperBound="-1"
         eType="#//Workflow" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="experiment" eType="#//Experiment"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -122,14 +124,13 @@
         eType="#//Case" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Experiment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" lowerBound="1"
-        eType="#//IntentRef" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="control" lowerBound="1"
         eType="#//Control" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="spaces" upperBound="-1"
-        eType="#//ExperimentationSpace" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workflow" lowerBound="1"
         eType="#//Workflow"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//ExperimentStep" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Case">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="case" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -161,40 +162,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntentRef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Control">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ControlKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="control" upperBound="-1"
-        eType="#//ControlElement" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExperimentationSpace">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="worflow" eType="#//AssembledWorflow"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//ParameterValue" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="#//TaskConfiguration" containment="true"/>
+        eType="#//ControlNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" eType="#//ControlLink"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//ParameterValue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ControlKind">
-    <eLiterals name="AUTOMATED"/>
-    <eLiterals name="EXPLICIT" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ControlElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="space" lowerBound="1" eType="#//ExperimentationSpace"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1" eType="#//ControlElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValues" eType="#//ParameterValue"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="space" eType="#//ExperimentSpace"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputdata" eType="#//InputData"/>
@@ -213,4 +196,28 @@
     <eLiterals name="SERIES"/>
     <eLiterals name="SCALAR" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentStep" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//ExperimentStep">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskspecification" eType="#//TaskSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentSpace" eSuperTypes="#//ExperimentStep">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assembledworflow" eType="#//AssembledWorflow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskConfiguration" upperBound="-1"
+        eType="#//TaskConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametervalue" eType="#//ParameterValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentTask" eSuperTypes="#//ExperimentStep">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlLink" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//ControlNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
+        eType="#//ControlNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RegularControlLink" eSuperTypes="#//ControlLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalControlLink" eSuperTypes="#//ControlLink"/>
 </ecore:EPackage>

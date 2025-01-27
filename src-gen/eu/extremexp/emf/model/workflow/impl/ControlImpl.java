@@ -3,8 +3,8 @@
 package eu.extremexp.emf.model.workflow.impl;
 
 import eu.extremexp.emf.model.workflow.Control;
-import eu.extremexp.emf.model.workflow.ControlElement;
-import eu.extremexp.emf.model.workflow.ControlKind;
+import eu.extremexp.emf.model.workflow.ControlLink;
+import eu.extremexp.emf.model.workflow.ControlNode;
 import eu.extremexp.emf.model.workflow.WorkflowPackage;
 
 import java.util.Collection;
@@ -31,33 +31,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link eu.extremexp.emf.model.workflow.impl.ControlImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.impl.ControlImpl#getControl <em>Control</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.impl.ControlImpl#getLinks <em>Links</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ControlImpl extends MinimalEObjectImpl.Container implements Control {
-	/**
-	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKind()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ControlKind KIND_EDEFAULT = ControlKind.AUTOMATED;
-
-	/**
-	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKind()
-	 * @generated
-	 * @ordered
-	 */
-	protected ControlKind kind = KIND_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getControl() <em>Control</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -66,7 +46,17 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ControlElement> control;
+	protected EList<ControlNode> control;
+
+	/**
+	 * The cached value of the '{@link #getLinks() <em>Links</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinks()
+	 * @generated
+	 * @ordered
+	 */
+	protected ControlLink links;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,33 +82,51 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControlKind getKind() {
-		return kind;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setKind(ControlKind newKind) {
-		ControlKind oldKind = kind;
-		kind = newKind == null ? KIND_EDEFAULT : newKind;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.CONTROL__KIND, oldKind, kind));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ControlElement> getControl() {
+	public EList<ControlNode> getControl() {
 		if (control == null) {
-			control = new EObjectContainmentEList<ControlElement>(ControlElement.class, this,
+			control = new EObjectContainmentEList<ControlNode>(ControlNode.class, this,
 					WorkflowPackage.CONTROL__CONTROL);
 		}
 		return control;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControlLink getLinks() {
+		if (links != null && links.eIsProxy()) {
+			InternalEObject oldLinks = (InternalEObject) links;
+			links = (ControlLink) eResolveProxy(oldLinks);
+			if (links != oldLinks) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WorkflowPackage.CONTROL__LINKS, oldLinks,
+							links));
+			}
+		}
+		return links;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControlLink basicGetLinks() {
+		return links;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLinks(ControlLink newLinks) {
+		ControlLink oldLinks = links;
+		links = newLinks;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.CONTROL__LINKS, oldLinks, links));
 	}
 
 	/**
@@ -143,10 +151,12 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case WorkflowPackage.CONTROL__KIND:
-			return getKind();
 		case WorkflowPackage.CONTROL__CONTROL:
 			return getControl();
+		case WorkflowPackage.CONTROL__LINKS:
+			if (resolve)
+				return getLinks();
+			return basicGetLinks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,12 +170,12 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case WorkflowPackage.CONTROL__KIND:
-			setKind((ControlKind) newValue);
-			return;
 		case WorkflowPackage.CONTROL__CONTROL:
 			getControl().clear();
-			getControl().addAll((Collection<? extends ControlElement>) newValue);
+			getControl().addAll((Collection<? extends ControlNode>) newValue);
+			return;
+		case WorkflowPackage.CONTROL__LINKS:
+			setLinks((ControlLink) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,11 +189,11 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case WorkflowPackage.CONTROL__KIND:
-			setKind(KIND_EDEFAULT);
-			return;
 		case WorkflowPackage.CONTROL__CONTROL:
 			getControl().clear();
+			return;
+		case WorkflowPackage.CONTROL__LINKS:
+			setLinks((ControlLink) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -197,29 +207,12 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case WorkflowPackage.CONTROL__KIND:
-			return kind != KIND_EDEFAULT;
 		case WorkflowPackage.CONTROL__CONTROL:
 			return control != null && !control.isEmpty();
+		case WorkflowPackage.CONTROL__LINKS:
+			return links != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (kind: ");
-		result.append(kind);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ControlImpl

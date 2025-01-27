@@ -1200,13 +1200,22 @@ public interface WorkflowPackage extends EPackage {
 	int ROOT__WORKFLOW = 3;
 
 	/**
+	 * The feature id for the '<em><b>Experiment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__EXPERIMENT = 4;
+
+	/**
 	 * The number of structural features of the '<em>ROOT</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 4;
+	int ROOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>ROOT</em>' class.
@@ -1274,31 +1283,13 @@ public interface WorkflowPackage extends EPackage {
 	int EXPERIMENT = 26;
 
 	/**
-	 * The feature id for the '<em><b>Intent</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT__INTENT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Control</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENT__CONTROL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Spaces</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENT__SPACES = 2;
+	int EXPERIMENT__CONTROL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Workflow</b></em>' reference.
@@ -1307,7 +1298,25 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENT__WORKFLOW = 3;
+	int EXPERIMENT__WORKFLOW = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT__NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT__STEPS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Experiment</em>' class.
@@ -1657,43 +1666,6 @@ public interface WorkflowPackage extends EPackage {
 	int TASK_SPECIFICATION_OPERATION_COUNT = WORKFLOW_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.IntentRefImpl <em>Intent Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see eu.extremexp.emf.model.workflow.impl.IntentRefImpl
-	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getIntentRef()
-	 * @generated
-	 */
-	int INTENT_REF = 32;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENT_REF__REF = 0;
-
-	/**
-	 * The number of structural features of the '<em>Intent Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENT_REF_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Intent Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENT_REF_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ControlImpl <em>Control</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1701,16 +1673,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControl()
 	 * @generated
 	 */
-	int CONTROL = 33;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL__KIND = 0;
+	int CONTROL = 32;
 
 	/**
 	 * The feature id for the '<em><b>Control</b></em>' containment reference list.
@@ -1719,7 +1682,16 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL__CONTROL = 1;
+	int CONTROL__CONTROL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Links</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL__LINKS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Control</em>' class.
@@ -1740,79 +1712,6 @@ public interface WorkflowPackage extends EPackage {
 	int CONTROL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentationSpaceImpl <em>Experimentation Space</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see eu.extremexp.emf.model.workflow.impl.ExperimentationSpaceImpl
-	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentationSpace()
-	 * @generated
-	 */
-	int EXPERIMENTATION_SPACE = 34;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Worflow</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE__WORFLOW = 1;
-
-	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE__STRATEGY = 2;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE__PARAMETERS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE__CONFIGURATIONS = 4;
-
-	/**
-	 * The number of structural features of the '<em>Experimentation Space</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Experimentation Space</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTATION_SPACE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1820,7 +1719,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getParameterValue()
 	 * @generated
 	 */
-	int PARAMETER_VALUE = 35;
+	int PARAMETER_VALUE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1866,16 +1765,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getTaskConfiguration()
 	 * @generated
 	 */
-	int TASK_CONFIGURATION = 36;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_CONFIGURATION__PARAMETERS = 0;
+	int TASK_CONFIGURATION = 34;
 
 	/**
 	 * The feature id for the '<em><b>Task</b></em>' reference.
@@ -1884,7 +1774,16 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_CONFIGURATION__TASK = 1;
+	int TASK_CONFIGURATION__TASK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Values</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_CONFIGURATION__PARAMETER_VALUES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Task Configuration</em>' class.
@@ -1905,14 +1804,14 @@ public interface WorkflowPackage extends EPackage {
 	int TASK_CONFIGURATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ControlElementImpl <em>Control Element</em>}' class.
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ControlNodeImpl <em>Control Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see eu.extremexp.emf.model.workflow.impl.ControlElementImpl
-	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlElement()
+	 * @see eu.extremexp.emf.model.workflow.impl.ControlNodeImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlNode()
 	 * @generated
 	 */
-	int CONTROL_ELEMENT = 37;
+	int CONTROL_NODE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Space</b></em>' reference.
@@ -1921,34 +1820,25 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_ELEMENT__SPACE = 0;
+	int CONTROL_NODE__SPACE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Control Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_ELEMENT__NEXT = 1;
+	int CONTROL_NODE_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of structural features of the '<em>Control Element</em>' class.
+	 * The number of operations of the '<em>Control Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_ELEMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Control Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_ELEMENT_OPERATION_COUNT = 0;
+	int CONTROL_NODE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.DataLinkImpl <em>Data Link</em>}' class.
@@ -1958,7 +1848,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getDataLink()
 	 * @generated
 	 */
-	int DATA_LINK = 38;
+	int DATA_LINK = 36;
 
 	/**
 	 * The feature id for the '<em><b>Inputdata</b></em>' reference.
@@ -2013,7 +1903,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getTaskData()
 	 * @generated
 	 */
-	int TASK_DATA = 39;
+	int TASK_DATA = 37;
 
 	/**
 	 * The feature id for the '<em><b>Data Name</b></em>' attribute.
@@ -2059,7 +1949,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getValueConstraint()
 	 * @generated
 	 */
-	int VALUE_CONSTRAINT = 40;
+	int VALUE_CONSTRAINT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -2089,6 +1979,346 @@ public interface WorkflowPackage extends EPackage {
 	int VALUE_CONSTRAINT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentStepImpl <em>Experiment Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.ExperimentStepImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentStep()
+	 * @generated
+	 */
+	int EXPERIMENT_STEP = 39;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_STEP__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_STEP_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Experiment Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_STEP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.InteractionImpl <em>Interaction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.InteractionImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getInteraction()
+	 * @generated
+	 */
+	int INTERACTION = 40;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__NAME = EXPERIMENT_STEP__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Taskspecification</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__TASKSPECIFICATION = EXPERIMENT_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_FEATURE_COUNT = EXPERIMENT_STEP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERATION_COUNT = EXPERIMENT_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentSpaceImpl <em>Experiment Space</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.ExperimentSpaceImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentSpace()
+	 * @generated
+	 */
+	int EXPERIMENT_SPACE = 41;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE__NAME = EXPERIMENT_STEP__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE__STRATEGY = EXPERIMENT_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Assembledworflow</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE__ASSEMBLEDWORFLOW = EXPERIMENT_STEP_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Task Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE__TASK_CONFIGURATION = EXPERIMENT_STEP_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Parametervalue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE__PARAMETERVALUE = EXPERIMENT_STEP_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Space</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE_FEATURE_COUNT = EXPERIMENT_STEP_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Experiment Space</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_SPACE_OPERATION_COUNT = EXPERIMENT_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentTaskImpl <em>Experiment Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.ExperimentTaskImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentTask()
+	 * @generated
+	 */
+	int EXPERIMENT_TASK = 42;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_TASK__NAME = EXPERIMENT_STEP__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_TASK__TASK = EXPERIMENT_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Experiment Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_TASK_FEATURE_COUNT = EXPERIMENT_STEP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Experiment Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENT_TASK_OPERATION_COUNT = EXPERIMENT_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ControlLinkImpl <em>Control Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.ControlLinkImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlLink()
+	 * @generated
+	 */
+	int CONTROL_LINK = 43;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_LINK__INPUT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_LINK__OUTPUT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_LINK_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_LINK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.RegularControlLinkImpl <em>Regular Control Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.RegularControlLinkImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getRegularControlLink()
+	 * @generated
+	 */
+	int REGULAR_CONTROL_LINK = 44;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGULAR_CONTROL_LINK__INPUT = CONTROL_LINK__INPUT;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGULAR_CONTROL_LINK__OUTPUT = CONTROL_LINK__OUTPUT;
+
+	/**
+	 * The number of structural features of the '<em>Regular Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGULAR_CONTROL_LINK_FEATURE_COUNT = CONTROL_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Regular Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGULAR_CONTROL_LINK_OPERATION_COUNT = CONTROL_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.impl.ConditionalControlLinkImpl <em>Conditional Control Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.extremexp.emf.model.workflow.impl.ConditionalControlLinkImpl
+	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getConditionalControlLink()
+	 * @generated
+	 */
+	int CONDITIONAL_CONTROL_LINK = 45;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONTROL_LINK__INPUT = CONTROL_LINK__INPUT;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONTROL_LINK__OUTPUT = CONTROL_LINK__OUTPUT;
+
+	/**
+	 * The number of structural features of the '<em>Conditional Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONTROL_LINK_FEATURE_COUNT = CONTROL_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Conditional Control Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONTROL_LINK_OPERATION_COUNT = CONTROL_LINK_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.EventValue <em>Event Value</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2096,7 +2326,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getEventValue()
 	 * @generated
 	 */
-	int EVENT_VALUE = 41;
+	int EVENT_VALUE = 46;
 
 	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.Primitive <em>Primitive</em>}' enum.
@@ -2106,17 +2336,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 42;
-
-	/**
-	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.ControlKind <em>Control Kind</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see eu.extremexp.emf.model.workflow.ControlKind
-	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlKind()
-	 * @generated
-	 */
-	int CONTROL_KIND = 43;
+	int PRIMITIVE = 47;
 
 	/**
 	 * The meta object id for the '{@link eu.extremexp.emf.model.workflow.MetricKind <em>Metric Kind</em>}' enum.
@@ -2126,7 +2346,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getMetricKind()
 	 * @generated
 	 */
-	int METRIC_KIND = 44;
+	int METRIC_KIND = 48;
 
 	/**
 	 * The meta object id for the '<em>New Data Type3</em>' data type.
@@ -2136,7 +2356,7 @@ public interface WorkflowPackage extends EPackage {
 	 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getNewDataType3()
 	 * @generated
 	 */
-	int NEW_DATA_TYPE3 = 45;
+	int NEW_DATA_TYPE3 = 49;
 
 	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Workflow <em>Workflow</em>}'.
@@ -2851,6 +3071,17 @@ public interface WorkflowPackage extends EPackage {
 	EReference getROOT_Workflow();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link eu.extremexp.emf.model.workflow.ROOT#getExperiment <em>Experiment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Experiment</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ROOT#getExperiment()
+	 * @see #getROOT()
+	 * @generated
+	 */
+	EReference getROOT_Experiment();
+
+	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2893,17 +3124,6 @@ public interface WorkflowPackage extends EPackage {
 	EClass getExperiment();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link eu.extremexp.emf.model.workflow.Experiment#getIntent <em>Intent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Intent</em>'.
-	 * @see eu.extremexp.emf.model.workflow.Experiment#getIntent()
-	 * @see #getExperiment()
-	 * @generated
-	 */
-	EReference getExperiment_Intent();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link eu.extremexp.emf.model.workflow.Experiment#getControl <em>Control</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2915,17 +3135,6 @@ public interface WorkflowPackage extends EPackage {
 	EReference getExperiment_Control();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.Experiment#getSpaces <em>Spaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Spaces</em>'.
-	 * @see eu.extremexp.emf.model.workflow.Experiment#getSpaces()
-	 * @see #getExperiment()
-	 * @generated
-	 */
-	EReference getExperiment_Spaces();
-
-	/**
 	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.Experiment#getWorkflow <em>Workflow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2935,6 +3144,28 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExperiment_Workflow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.Experiment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Experiment#getName()
+	 * @see #getExperiment()
+	 * @generated
+	 */
+	EAttribute getExperiment_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.Experiment#getSteps <em>Steps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Steps</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Experiment#getSteps()
+	 * @see #getExperiment()
+	 * @generated
+	 */
+	EReference getExperiment_Steps();
 
 	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Case <em>Case</em>}'.
@@ -3119,27 +3350,6 @@ public interface WorkflowPackage extends EPackage {
 	EReference getTaskSpecification_Parameters();
 
 	/**
-	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.IntentRef <em>Intent Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Intent Ref</em>'.
-	 * @see eu.extremexp.emf.model.workflow.IntentRef
-	 * @generated
-	 */
-	EClass getIntentRef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.IntentRef#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see eu.extremexp.emf.model.workflow.IntentRef#getRef()
-	 * @see #getIntentRef()
-	 * @generated
-	 */
-	EAttribute getIntentRef_Ref();
-
-	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Control <em>Control</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3148,17 +3358,6 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getControl();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.Control#getKind <em>Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Kind</em>'.
-	 * @see eu.extremexp.emf.model.workflow.Control#getKind()
-	 * @see #getControl()
-	 * @generated
-	 */
-	EAttribute getControl_Kind();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.Control#getControl <em>Control</em>}'.
@@ -3172,69 +3371,15 @@ public interface WorkflowPackage extends EPackage {
 	EReference getControl_Control();
 
 	/**
-	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace <em>Experimentation Space</em>}'.
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.Control#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Experimentation Space</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace
+	 * @return the meta object for the reference '<em>Links</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Control#getLinks()
+	 * @see #getControl()
 	 * @generated
 	 */
-	EClass getExperimentationSpace();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace#getName()
-	 * @see #getExperimentationSpace()
-	 * @generated
-	 */
-	EAttribute getExperimentationSpace_Name();
-
-	/**
-	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace#getWorflow <em>Worflow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Worflow</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace#getWorflow()
-	 * @see #getExperimentationSpace()
-	 * @generated
-	 */
-	EReference getExperimentationSpace_Worflow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace#getStrategy <em>Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Strategy</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace#getStrategy()
-	 * @see #getExperimentationSpace()
-	 * @generated
-	 */
-	EAttribute getExperimentationSpace_Strategy();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace#getParameters()
-	 * @see #getExperimentationSpace()
-	 * @generated
-	 */
-	EReference getExperimentationSpace_Parameters();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace#getConfigurations <em>Configurations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace#getConfigurations()
-	 * @see #getExperimentationSpace()
-	 * @generated
-	 */
-	EReference getExperimentationSpace_Configurations();
+	EReference getControl_Links();
 
 	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ParameterValue <em>Parameter Value</em>}'.
@@ -3279,17 +3424,6 @@ public interface WorkflowPackage extends EPackage {
 	EClass getTaskConfiguration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see eu.extremexp.emf.model.workflow.TaskConfiguration#getParameters()
-	 * @see #getTaskConfiguration()
-	 * @generated
-	 */
-	EReference getTaskConfiguration_Parameters();
-
-	/**
 	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3301,36 +3435,36 @@ public interface WorkflowPackage extends EPackage {
 	EReference getTaskConfiguration_Task();
 
 	/**
-	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ControlElement <em>Control Element</em>}'.
+	 * Returns the meta object for the containment reference '{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getParameterValues <em>Parameter Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Control Element</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ControlElement
+	 * @return the meta object for the containment reference '<em>Parameter Values</em>'.
+	 * @see eu.extremexp.emf.model.workflow.TaskConfiguration#getParameterValues()
+	 * @see #getTaskConfiguration()
 	 * @generated
 	 */
-	EClass getControlElement();
+	EReference getTaskConfiguration_ParameterValues();
 
 	/**
-	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ControlElement#getSpace <em>Space</em>}'.
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ControlNode <em>Control Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control Node</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ControlNode
+	 * @generated
+	 */
+	EClass getControlNode();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ControlNode#getSpace <em>Space</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Space</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ControlElement#getSpace()
-	 * @see #getControlElement()
+	 * @see eu.extremexp.emf.model.workflow.ControlNode#getSpace()
+	 * @see #getControlNode()
 	 * @generated
 	 */
-	EReference getControlElement_Space();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.ControlElement#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ControlElement#getNext()
-	 * @see #getControlElement()
-	 * @generated
-	 */
-	EReference getControlElement_Next();
+	EReference getControlNode_Space();
 
 	/**
 	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.DataLink <em>Data Link</em>}'.
@@ -3429,6 +3563,175 @@ public interface WorkflowPackage extends EPackage {
 	EAttribute getValueConstraint_Constraint();
 
 	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ExperimentStep <em>Experiment Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Experiment Step</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentStep
+	 * @generated
+	 */
+	EClass getExperimentStep();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.ExperimentStep#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentStep#getName()
+	 * @see #getExperimentStep()
+	 * @generated
+	 */
+	EAttribute getExperimentStep_Name();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.Interaction <em>Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interaction</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Interaction
+	 * @generated
+	 */
+	EClass getInteraction();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.Interaction#getTaskspecification <em>Taskspecification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Taskspecification</em>'.
+	 * @see eu.extremexp.emf.model.workflow.Interaction#getTaskspecification()
+	 * @see #getInteraction()
+	 * @generated
+	 */
+	EReference getInteraction_Taskspecification();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ExperimentSpace <em>Experiment Space</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Experiment Space</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace
+	 * @generated
+	 */
+	EClass getExperimentSpace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eu.extremexp.emf.model.workflow.ExperimentSpace#getStrategy <em>Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Strategy</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace#getStrategy()
+	 * @see #getExperimentSpace()
+	 * @generated
+	 */
+	EAttribute getExperimentSpace_Strategy();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ExperimentSpace#getAssembledworflow <em>Assembledworflow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assembledworflow</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace#getAssembledworflow()
+	 * @see #getExperimentSpace()
+	 * @generated
+	 */
+	EReference getExperimentSpace_Assembledworflow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eu.extremexp.emf.model.workflow.ExperimentSpace#getTaskConfiguration <em>Task Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Task Configuration</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace#getTaskConfiguration()
+	 * @see #getExperimentSpace()
+	 * @generated
+	 */
+	EReference getExperimentSpace_TaskConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link eu.extremexp.emf.model.workflow.ExperimentSpace#getParametervalue <em>Parametervalue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Parametervalue</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace#getParametervalue()
+	 * @see #getExperimentSpace()
+	 * @generated
+	 */
+	EReference getExperimentSpace_Parametervalue();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ExperimentTask <em>Experiment Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Experiment Task</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentTask
+	 * @generated
+	 */
+	EClass getExperimentTask();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ExperimentTask#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentTask#getTask()
+	 * @see #getExperimentTask()
+	 * @generated
+	 */
+	EReference getExperimentTask_Task();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ControlLink <em>Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control Link</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ControlLink
+	 * @generated
+	 */
+	EClass getControlLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ControlLink#getInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Input</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ControlLink#getInput()
+	 * @see #getControlLink()
+	 * @generated
+	 */
+	EReference getControlLink_Input();
+
+	/**
+	 * Returns the meta object for the reference '{@link eu.extremexp.emf.model.workflow.ControlLink#getOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Output</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ControlLink#getOutput()
+	 * @see #getControlLink()
+	 * @generated
+	 */
+	EReference getControlLink_Output();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.RegularControlLink <em>Regular Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Regular Control Link</em>'.
+	 * @see eu.extremexp.emf.model.workflow.RegularControlLink
+	 * @generated
+	 */
+	EClass getRegularControlLink();
+
+	/**
+	 * Returns the meta object for class '{@link eu.extremexp.emf.model.workflow.ConditionalControlLink <em>Conditional Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conditional Control Link</em>'.
+	 * @see eu.extremexp.emf.model.workflow.ConditionalControlLink
+	 * @generated
+	 */
+	EClass getConditionalControlLink();
+
+	/**
 	 * Returns the meta object for enum '{@link eu.extremexp.emf.model.workflow.EventValue <em>Event Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3447,16 +3750,6 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getPrimitive();
-
-	/**
-	 * Returns the meta object for enum '{@link eu.extremexp.emf.model.workflow.ControlKind <em>Control Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Control Kind</em>'.
-	 * @see eu.extremexp.emf.model.workflow.ControlKind
-	 * @generated
-	 */
-	EEnum getControlKind();
 
 	/**
 	 * Returns the meta object for enum '{@link eu.extremexp.emf.model.workflow.MetricKind <em>Metric Kind</em>}'.
@@ -4089,6 +4382,14 @@ public interface WorkflowPackage extends EPackage {
 		EReference ROOT__WORKFLOW = eINSTANCE.getROOT_Workflow();
 
 		/**
+		 * The meta object literal for the '<em><b>Experiment</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__EXPERIMENT = eINSTANCE.getROOT_Experiment();
+
+		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ConditionImpl <em>Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4125,14 +4426,6 @@ public interface WorkflowPackage extends EPackage {
 		EClass EXPERIMENT = eINSTANCE.getExperiment();
 
 		/**
-		 * The meta object literal for the '<em><b>Intent</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENT__INTENT = eINSTANCE.getExperiment_Intent();
-
-		/**
 		 * The meta object literal for the '<em><b>Control</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4141,20 +4434,28 @@ public interface WorkflowPackage extends EPackage {
 		EReference EXPERIMENT__CONTROL = eINSTANCE.getExperiment_Control();
 
 		/**
-		 * The meta object literal for the '<em><b>Spaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENT__SPACES = eINSTANCE.getExperiment_Spaces();
-
-		/**
 		 * The meta object literal for the '<em><b>Workflow</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference EXPERIMENT__WORKFLOW = eINSTANCE.getExperiment_Workflow();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPERIMENT__NAME = eINSTANCE.getExperiment_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENT__STEPS = eINSTANCE.getExperiment_Steps();
 
 		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.CaseImpl <em>Case</em>}' class.
@@ -4303,24 +4604,6 @@ public interface WorkflowPackage extends EPackage {
 		EReference TASK_SPECIFICATION__PARAMETERS = eINSTANCE.getTaskSpecification_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.IntentRefImpl <em>Intent Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see eu.extremexp.emf.model.workflow.impl.IntentRefImpl
-		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getIntentRef()
-		 * @generated
-		 */
-		EClass INTENT_REF = eINSTANCE.getIntentRef();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INTENT_REF__REF = eINSTANCE.getIntentRef_Ref();
-
-		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ControlImpl <em>Control</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4331,14 +4614,6 @@ public interface WorkflowPackage extends EPackage {
 		EClass CONTROL = eINSTANCE.getControl();
 
 		/**
-		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONTROL__KIND = eINSTANCE.getControl_Kind();
-
-		/**
 		 * The meta object literal for the '<em><b>Control</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4347,54 +4622,12 @@ public interface WorkflowPackage extends EPackage {
 		EReference CONTROL__CONTROL = eINSTANCE.getControl_Control();
 
 		/**
-		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentationSpaceImpl <em>Experimentation Space</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see eu.extremexp.emf.model.workflow.impl.ExperimentationSpaceImpl
-		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentationSpace()
-		 * @generated
-		 */
-		EClass EXPERIMENTATION_SPACE = eINSTANCE.getExperimentationSpace();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Links</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXPERIMENTATION_SPACE__NAME = eINSTANCE.getExperimentationSpace_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Worflow</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENTATION_SPACE__WORFLOW = eINSTANCE.getExperimentationSpace_Worflow();
-
-		/**
-		 * The meta object literal for the '<em><b>Strategy</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXPERIMENTATION_SPACE__STRATEGY = eINSTANCE.getExperimentationSpace_Strategy();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENTATION_SPACE__PARAMETERS = eINSTANCE.getExperimentationSpace_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENTATION_SPACE__CONFIGURATIONS = eINSTANCE.getExperimentationSpace_Configurations();
+		EReference CONTROL__LINKS = eINSTANCE.getControl_Links();
 
 		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -4433,14 +4666,6 @@ public interface WorkflowPackage extends EPackage {
 		EClass TASK_CONFIGURATION = eINSTANCE.getTaskConfiguration();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TASK_CONFIGURATION__PARAMETERS = eINSTANCE.getTaskConfiguration_Parameters();
-
-		/**
 		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4449,14 +4674,22 @@ public interface WorkflowPackage extends EPackage {
 		EReference TASK_CONFIGURATION__TASK = eINSTANCE.getTaskConfiguration_Task();
 
 		/**
-		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ControlElementImpl <em>Control Element</em>}' class.
+		 * The meta object literal for the '<em><b>Parameter Values</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see eu.extremexp.emf.model.workflow.impl.ControlElementImpl
-		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlElement()
 		 * @generated
 		 */
-		EClass CONTROL_ELEMENT = eINSTANCE.getControlElement();
+		EReference TASK_CONFIGURATION__PARAMETER_VALUES = eINSTANCE.getTaskConfiguration_ParameterValues();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ControlNodeImpl <em>Control Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ControlNodeImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlNode()
+		 * @generated
+		 */
+		EClass CONTROL_NODE = eINSTANCE.getControlNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Space</b></em>' reference feature.
@@ -4464,15 +4697,7 @@ public interface WorkflowPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTROL_ELEMENT__SPACE = eINSTANCE.getControlElement_Space();
-
-		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTROL_ELEMENT__NEXT = eINSTANCE.getControlElement_Next();
+		EReference CONTROL_NODE__SPACE = eINSTANCE.getControlNode_Space();
 
 		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.DataLinkImpl <em>Data Link</em>}' class.
@@ -4553,6 +4778,148 @@ public interface WorkflowPackage extends EPackage {
 		EAttribute VALUE_CONSTRAINT__CONSTRAINT = eINSTANCE.getValueConstraint_Constraint();
 
 		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentStepImpl <em>Experiment Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ExperimentStepImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentStep()
+		 * @generated
+		 */
+		EClass EXPERIMENT_STEP = eINSTANCE.getExperimentStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPERIMENT_STEP__NAME = eINSTANCE.getExperimentStep_Name();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.InteractionImpl <em>Interaction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.InteractionImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getInteraction()
+		 * @generated
+		 */
+		EClass INTERACTION = eINSTANCE.getInteraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Taskspecification</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION__TASKSPECIFICATION = eINSTANCE.getInteraction_Taskspecification();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentSpaceImpl <em>Experiment Space</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ExperimentSpaceImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentSpace()
+		 * @generated
+		 */
+		EClass EXPERIMENT_SPACE = eINSTANCE.getExperimentSpace();
+
+		/**
+		 * The meta object literal for the '<em><b>Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPERIMENT_SPACE__STRATEGY = eINSTANCE.getExperimentSpace_Strategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Assembledworflow</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENT_SPACE__ASSEMBLEDWORFLOW = eINSTANCE.getExperimentSpace_Assembledworflow();
+
+		/**
+		 * The meta object literal for the '<em><b>Task Configuration</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENT_SPACE__TASK_CONFIGURATION = eINSTANCE.getExperimentSpace_TaskConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Parametervalue</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENT_SPACE__PARAMETERVALUE = eINSTANCE.getExperimentSpace_Parametervalue();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ExperimentTaskImpl <em>Experiment Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ExperimentTaskImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getExperimentTask()
+		 * @generated
+		 */
+		EClass EXPERIMENT_TASK = eINSTANCE.getExperimentTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENT_TASK__TASK = eINSTANCE.getExperimentTask_Task();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ControlLinkImpl <em>Control Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ControlLinkImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlLink()
+		 * @generated
+		 */
+		EClass CONTROL_LINK = eINSTANCE.getControlLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_LINK__INPUT = eINSTANCE.getControlLink_Input();
+
+		/**
+		 * The meta object literal for the '<em><b>Output</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_LINK__OUTPUT = eINSTANCE.getControlLink_Output();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.RegularControlLinkImpl <em>Regular Control Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.RegularControlLinkImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getRegularControlLink()
+		 * @generated
+		 */
+		EClass REGULAR_CONTROL_LINK = eINSTANCE.getRegularControlLink();
+
+		/**
+		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.impl.ConditionalControlLinkImpl <em>Conditional Control Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.extremexp.emf.model.workflow.impl.ConditionalControlLinkImpl
+		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getConditionalControlLink()
+		 * @generated
+		 */
+		EClass CONDITIONAL_CONTROL_LINK = eINSTANCE.getConditionalControlLink();
+
+		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.EventValue <em>Event Value</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4571,16 +4938,6 @@ public interface WorkflowPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PRIMITIVE = eINSTANCE.getPrimitive();
-
-		/**
-		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.ControlKind <em>Control Kind</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see eu.extremexp.emf.model.workflow.ControlKind
-		 * @see eu.extremexp.emf.model.workflow.impl.WorkflowPackageImpl#getControlKind()
-		 * @generated
-		 */
-		EEnum CONTROL_KIND = eINSTANCE.getControlKind();
 
 		/**
 		 * The meta object literal for the '{@link eu.extremexp.emf.model.workflow.MetricKind <em>Metric Kind</em>}' enum.

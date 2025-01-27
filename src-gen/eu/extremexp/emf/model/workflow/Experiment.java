@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getIntent <em>Intent</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getControl <em>Control</em>}</li>
- *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getSpaces <em>Spaces</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getName <em>Name</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.Experiment#getSteps <em>Steps</em>}</li>
  * </ul>
  *
  * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExperiment()
@@ -26,28 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Experiment extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(IntentRef)
-	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExperiment_Intent()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	IntentRef getIntent();
-
-	/**
-	 * Sets the value of the '{@link eu.extremexp.emf.model.workflow.Experiment#getIntent <em>Intent</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Intent</em>' containment reference.
-	 * @see #getIntent()
-	 * @generated
-	 */
-	void setIntent(IntentRef value);
-
 	/**
 	 * Returns the value of the '<em><b>Control</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -71,18 +49,6 @@ public interface Experiment extends EObject {
 	void setControl(Control value);
 
 	/**
-	 * Returns the value of the '<em><b>Spaces</b></em>' containment reference list.
-	 * The list contents are of type {@link eu.extremexp.emf.model.workflow.ExperimentationSpace}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Spaces</em>' containment reference list.
-	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExperiment_Spaces()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ExperimentationSpace> getSpaces();
-
-	/**
 	 * Returns the value of the '<em><b>Workflow</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,5 +69,39 @@ public interface Experiment extends EObject {
 	 * @generated
 	 */
 	void setWorkflow(Workflow value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExperiment_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link eu.extremexp.emf.model.workflow.Experiment#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+	 * The list contents are of type {@link eu.extremexp.emf.model.workflow.ExperimentStep}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Steps</em>' containment reference list.
+	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getExperiment_Steps()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ExperimentStep> getSteps();
 
 } // Experiment

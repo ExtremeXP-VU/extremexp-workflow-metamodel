@@ -2,8 +2,6 @@
  */
 package eu.extremexp.emf.model.workflow;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getParameters <em>Parameters</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getTask <em>Task</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getParameterValues <em>Parameter Values</em>}</li>
  * </ul>
  *
  * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getTaskConfiguration()
@@ -24,18 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface TaskConfiguration extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link eu.extremexp.emf.model.workflow.ParameterValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getTaskConfiguration_Parameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ParameterValue> getParameters();
-
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -57,5 +43,27 @@ public interface TaskConfiguration extends EObject {
 	 * @generated
 	 */
 	void setTask(Task value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Values</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Values</em>' containment reference.
+	 * @see #setParameterValues(ParameterValue)
+	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getTaskConfiguration_ParameterValues()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ParameterValue getParameterValues();
+
+	/**
+	 * Sets the value of the '{@link eu.extremexp.emf.model.workflow.TaskConfiguration#getParameterValues <em>Parameter Values</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameter Values</em>' containment reference.
+	 * @see #getParameterValues()
+	 * @generated
+	 */
+	void setParameterValues(ParameterValue value);
 
 } // TaskConfiguration

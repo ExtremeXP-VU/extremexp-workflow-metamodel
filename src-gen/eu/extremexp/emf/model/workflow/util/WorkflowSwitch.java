@@ -330,23 +330,9 @@ public class WorkflowSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case WorkflowPackage.INTENT_REF: {
-			IntentRef intentRef = (IntentRef) theEObject;
-			T result = caseIntentRef(intentRef);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case WorkflowPackage.CONTROL: {
 			Control control = (Control) theEObject;
 			T result = caseControl(control);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case WorkflowPackage.EXPERIMENTATION_SPACE: {
-			ExperimentationSpace experimentationSpace = (ExperimentationSpace) theEObject;
-			T result = caseExperimentationSpace(experimentationSpace);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -365,9 +351,9 @@ public class WorkflowSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case WorkflowPackage.CONTROL_ELEMENT: {
-			ControlElement controlElement = (ControlElement) theEObject;
-			T result = caseControlElement(controlElement);
+		case WorkflowPackage.CONTROL_NODE: {
+			ControlNode controlNode = (ControlNode) theEObject;
+			T result = caseControlNode(controlNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -389,6 +375,65 @@ public class WorkflowSwitch<T> extends Switch<T> {
 		case WorkflowPackage.VALUE_CONSTRAINT: {
 			ValueConstraint valueConstraint = (ValueConstraint) theEObject;
 			T result = caseValueConstraint(valueConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.EXPERIMENT_STEP: {
+			ExperimentStep experimentStep = (ExperimentStep) theEObject;
+			T result = caseExperimentStep(experimentStep);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.INTERACTION: {
+			Interaction interaction = (Interaction) theEObject;
+			T result = caseInteraction(interaction);
+			if (result == null)
+				result = caseExperimentStep(interaction);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.EXPERIMENT_SPACE: {
+			ExperimentSpace experimentSpace = (ExperimentSpace) theEObject;
+			T result = caseExperimentSpace(experimentSpace);
+			if (result == null)
+				result = caseExperimentStep(experimentSpace);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.EXPERIMENT_TASK: {
+			ExperimentTask experimentTask = (ExperimentTask) theEObject;
+			T result = caseExperimentTask(experimentTask);
+			if (result == null)
+				result = caseExperimentStep(experimentTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.CONTROL_LINK: {
+			ControlLink controlLink = (ControlLink) theEObject;
+			T result = caseControlLink(controlLink);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.REGULAR_CONTROL_LINK: {
+			RegularControlLink regularControlLink = (RegularControlLink) theEObject;
+			T result = caseRegularControlLink(regularControlLink);
+			if (result == null)
+				result = caseControlLink(regularControlLink);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case WorkflowPackage.CONDITIONAL_CONTROL_LINK: {
+			ConditionalControlLink conditionalControlLink = (ConditionalControlLink) theEObject;
+			T result = caseConditionalControlLink(conditionalControlLink);
+			if (result == null)
+				result = caseControlLink(conditionalControlLink);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -879,21 +924,6 @@ public class WorkflowSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Intent Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Intent Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntentRef(IntentRef object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Control</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -905,21 +935,6 @@ public class WorkflowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseControl(Control object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Experimentation Space</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Experimentation Space</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExperimentationSpace(ExperimentationSpace object) {
 		return null;
 	}
 
@@ -954,17 +969,17 @@ public class WorkflowSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Control Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Control Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Control Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Control Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseControlElement(ControlElement object) {
+	public T caseControlNode(ControlNode object) {
 		return null;
 	}
 
@@ -1010,6 +1025,111 @@ public class WorkflowSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseValueConstraint(ValueConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Experiment Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Experiment Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExperimentStep(ExperimentStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInteraction(Interaction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Experiment Space</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Experiment Space</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExperimentSpace(ExperimentSpace object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Experiment Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Experiment Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExperimentTask(ExperimentTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Control Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Control Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlLink(ControlLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Regular Control Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Regular Control Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRegularControlLink(RegularControlLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Control Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Control Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalControlLink(ConditionalControlLink object) {
 		return null;
 	}
 

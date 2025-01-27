@@ -265,15 +265,6 @@ public interface WorkflowFactory extends EFactory {
 	TaskSpecification createTaskSpecification();
 
 	/**
-	 * Returns a new object of class '<em>Intent Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Intent Ref</em>'.
-	 * @generated
-	 */
-	IntentRef createIntentRef();
-
-	/**
 	 * Returns a new object of class '<em>Control</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,15 +272,6 @@ public interface WorkflowFactory extends EFactory {
 	 * @generated
 	 */
 	Control createControl();
-
-	/**
-	 * Returns a new object of class '<em>Experimentation Space</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Experimentation Space</em>'.
-	 * @generated
-	 */
-	ExperimentationSpace createExperimentationSpace();
 
 	/**
 	 * Returns a new object of class '<em>Parameter Value</em>'.
@@ -310,13 +292,13 @@ public interface WorkflowFactory extends EFactory {
 	TaskConfiguration createTaskConfiguration();
 
 	/**
-	 * Returns a new object of class '<em>Control Element</em>'.
+	 * Returns a new object of class '<em>Control Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Control Element</em>'.
+	 * @return a new object of class '<em>Control Node</em>'.
 	 * @generated
 	 */
-	ControlElement createControlElement();
+	ControlNode createControlNode();
 
 	/**
 	 * Returns a new object of class '<em>Data Link</em>'.
@@ -344,6 +326,51 @@ public interface WorkflowFactory extends EFactory {
 	 * @generated
 	 */
 	ValueConstraint createValueConstraint();
+
+	/**
+	 * Returns a new object of class '<em>Interaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interaction</em>'.
+	 * @generated
+	 */
+	Interaction createInteraction();
+
+	/**
+	 * Returns a new object of class '<em>Experiment Space</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Experiment Space</em>'.
+	 * @generated
+	 */
+	ExperimentSpace createExperimentSpace();
+
+	/**
+	 * Returns a new object of class '<em>Experiment Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Experiment Task</em>'.
+	 * @generated
+	 */
+	ExperimentTask createExperimentTask();
+
+	/**
+	 * Returns a new object of class '<em>Regular Control Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Regular Control Link</em>'.
+	 * @generated
+	 */
+	RegularControlLink createRegularControlLink();
+
+	/**
+	 * Returns a new object of class '<em>Conditional Control Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Control Link</em>'.
+	 * @generated
+	 */
+	ConditionalControlLink createConditionalControlLink();
 
 	/**
 	 * Returns the package supported by this factory.

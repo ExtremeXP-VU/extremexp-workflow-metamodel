@@ -227,18 +227,8 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIntentRef(IntentRef object) {
-			return createIntentRefAdapter();
-		}
-
-		@Override
 		public Adapter caseControl(Control object) {
 			return createControlAdapter();
-		}
-
-		@Override
-		public Adapter caseExperimentationSpace(ExperimentationSpace object) {
-			return createExperimentationSpaceAdapter();
 		}
 
 		@Override
@@ -252,8 +242,8 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseControlElement(ControlElement object) {
-			return createControlElementAdapter();
+		public Adapter caseControlNode(ControlNode object) {
+			return createControlNodeAdapter();
 		}
 
 		@Override
@@ -269,6 +259,41 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseValueConstraint(ValueConstraint object) {
 			return createValueConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseExperimentStep(ExperimentStep object) {
+			return createExperimentStepAdapter();
+		}
+
+		@Override
+		public Adapter caseInteraction(Interaction object) {
+			return createInteractionAdapter();
+		}
+
+		@Override
+		public Adapter caseExperimentSpace(ExperimentSpace object) {
+			return createExperimentSpaceAdapter();
+		}
+
+		@Override
+		public Adapter caseExperimentTask(ExperimentTask object) {
+			return createExperimentTaskAdapter();
+		}
+
+		@Override
+		public Adapter caseControlLink(ControlLink object) {
+			return createControlLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseRegularControlLink(RegularControlLink object) {
+			return createRegularControlLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseConditionalControlLink(ConditionalControlLink object) {
+			return createConditionalControlLinkAdapter();
 		}
 
 		@Override
@@ -739,20 +764,6 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.IntentRef <em>Intent Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see eu.extremexp.emf.model.workflow.IntentRef
-	 * @generated
-	 */
-	public Adapter createIntentRefAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.Control <em>Control</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -763,20 +774,6 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createControlAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ExperimentationSpace <em>Experimentation Space</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see eu.extremexp.emf.model.workflow.ExperimentationSpace
-	 * @generated
-	 */
-	public Adapter createExperimentationSpaceAdapter() {
 		return null;
 	}
 
@@ -809,16 +806,16 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ControlElement <em>Control Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ControlNode <em>Control Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see eu.extremexp.emf.model.workflow.ControlElement
+	 * @see eu.extremexp.emf.model.workflow.ControlNode
 	 * @generated
 	 */
-	public Adapter createControlElementAdapter() {
+	public Adapter createControlNodeAdapter() {
 		return null;
 	}
 
@@ -861,6 +858,104 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ExperimentStep <em>Experiment Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentStep
+	 * @generated
+	 */
+	public Adapter createExperimentStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.Interaction <em>Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.Interaction
+	 * @generated
+	 */
+	public Adapter createInteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ExperimentSpace <em>Experiment Space</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentSpace
+	 * @generated
+	 */
+	public Adapter createExperimentSpaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ExperimentTask <em>Experiment Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.ExperimentTask
+	 * @generated
+	 */
+	public Adapter createExperimentTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ControlLink <em>Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.ControlLink
+	 * @generated
+	 */
+	public Adapter createControlLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.RegularControlLink <em>Regular Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.RegularControlLink
+	 * @generated
+	 */
+	public Adapter createRegularControlLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.extremexp.emf.model.workflow.ConditionalControlLink <em>Conditional Control Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.extremexp.emf.model.workflow.ConditionalControlLink
+	 * @generated
+	 */
+	public Adapter createConditionalControlLinkAdapter() {
 		return null;
 	}
 

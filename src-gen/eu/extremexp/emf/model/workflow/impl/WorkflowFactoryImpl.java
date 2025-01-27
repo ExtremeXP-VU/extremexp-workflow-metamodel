@@ -111,24 +111,30 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 			return createCompositeWorkflow();
 		case WorkflowPackage.TASK_SPECIFICATION:
 			return createTaskSpecification();
-		case WorkflowPackage.INTENT_REF:
-			return createIntentRef();
 		case WorkflowPackage.CONTROL:
 			return createControl();
-		case WorkflowPackage.EXPERIMENTATION_SPACE:
-			return createExperimentationSpace();
 		case WorkflowPackage.PARAMETER_VALUE:
 			return createParameterValue();
 		case WorkflowPackage.TASK_CONFIGURATION:
 			return createTaskConfiguration();
-		case WorkflowPackage.CONTROL_ELEMENT:
-			return createControlElement();
+		case WorkflowPackage.CONTROL_NODE:
+			return createControlNode();
 		case WorkflowPackage.DATA_LINK:
 			return createDataLink();
 		case WorkflowPackage.TASK_DATA:
 			return createTaskData();
 		case WorkflowPackage.VALUE_CONSTRAINT:
 			return createValueConstraint();
+		case WorkflowPackage.INTERACTION:
+			return createInteraction();
+		case WorkflowPackage.EXPERIMENT_SPACE:
+			return createExperimentSpace();
+		case WorkflowPackage.EXPERIMENT_TASK:
+			return createExperimentTask();
+		case WorkflowPackage.REGULAR_CONTROL_LINK:
+			return createRegularControlLink();
+		case WorkflowPackage.CONDITIONAL_CONTROL_LINK:
+			return createConditionalControlLink();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -146,8 +152,6 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 			return createEventValueFromString(eDataType, initialValue);
 		case WorkflowPackage.PRIMITIVE:
 			return createPrimitiveFromString(eDataType, initialValue);
-		case WorkflowPackage.CONTROL_KIND:
-			return createControlKindFromString(eDataType, initialValue);
 		case WorkflowPackage.METRIC_KIND:
 			return createMetricKindFromString(eDataType, initialValue);
 		case WorkflowPackage.NEW_DATA_TYPE3:
@@ -169,8 +173,6 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 			return convertEventValueToString(eDataType, instanceValue);
 		case WorkflowPackage.PRIMITIVE:
 			return convertPrimitiveToString(eDataType, instanceValue);
-		case WorkflowPackage.CONTROL_KIND:
-			return convertControlKindToString(eDataType, instanceValue);
 		case WorkflowPackage.METRIC_KIND:
 			return convertMetricKindToString(eDataType, instanceValue);
 		case WorkflowPackage.NEW_DATA_TYPE3:
@@ -455,29 +457,9 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntentRef createIntentRef() {
-		IntentRefImpl intentRef = new IntentRefImpl();
-		return intentRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Control createControl() {
 		ControlImpl control = new ControlImpl();
 		return control;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExperimentationSpace createExperimentationSpace() {
-		ExperimentationSpaceImpl experimentationSpace = new ExperimentationSpaceImpl();
-		return experimentationSpace;
 	}
 
 	/**
@@ -505,9 +487,9 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ControlElement createControlElement() {
-		ControlElementImpl controlElement = new ControlElementImpl();
-		return controlElement;
+	public ControlNode createControlNode() {
+		ControlNodeImpl controlNode = new ControlNodeImpl();
+		return controlNode;
 	}
 
 	/**
@@ -538,6 +520,56 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	public ValueConstraint createValueConstraint() {
 		ValueConstraintImpl valueConstraint = new ValueConstraintImpl();
 		return valueConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Interaction createInteraction() {
+		InteractionImpl interaction = new InteractionImpl();
+		return interaction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExperimentSpace createExperimentSpace() {
+		ExperimentSpaceImpl experimentSpace = new ExperimentSpaceImpl();
+		return experimentSpace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExperimentTask createExperimentTask() {
+		ExperimentTaskImpl experimentTask = new ExperimentTaskImpl();
+		return experimentTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegularControlLink createRegularControlLink() {
+		RegularControlLinkImpl regularControlLink = new RegularControlLinkImpl();
+		return regularControlLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionalControlLink createConditionalControlLink() {
+		ConditionalControlLinkImpl conditionalControlLink = new ConditionalControlLinkImpl();
+		return conditionalControlLink;
 	}
 
 	/**
@@ -581,28 +613,6 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	 * @generated
 	 */
 	public String convertPrimitiveToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ControlKind createControlKindFromString(EDataType eDataType, String initialValue) {
-		ControlKind result = ControlKind.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertControlKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

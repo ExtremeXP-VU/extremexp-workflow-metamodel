@@ -7,22 +7,25 @@ import eu.extremexp.emf.model.workflow.AssembledWorflow;
 import eu.extremexp.emf.model.workflow.Case;
 import eu.extremexp.emf.model.workflow.CompositeWorkflow;
 import eu.extremexp.emf.model.workflow.Condition;
+import eu.extremexp.emf.model.workflow.ConditionalControlLink;
 import eu.extremexp.emf.model.workflow.ConditionalLink;
 import eu.extremexp.emf.model.workflow.Control;
-import eu.extremexp.emf.model.workflow.ControlElement;
-import eu.extremexp.emf.model.workflow.ControlKind;
+import eu.extremexp.emf.model.workflow.ControlLink;
+import eu.extremexp.emf.model.workflow.ControlNode;
 import eu.extremexp.emf.model.workflow.DataLink;
 import eu.extremexp.emf.model.workflow.Event;
 import eu.extremexp.emf.model.workflow.EventValue;
 import eu.extremexp.emf.model.workflow.ExceptionalLink;
 import eu.extremexp.emf.model.workflow.Exclusive;
 import eu.extremexp.emf.model.workflow.Experiment;
-import eu.extremexp.emf.model.workflow.ExperimentationSpace;
+import eu.extremexp.emf.model.workflow.ExperimentSpace;
+import eu.extremexp.emf.model.workflow.ExperimentStep;
+import eu.extremexp.emf.model.workflow.ExperimentTask;
 import eu.extremexp.emf.model.workflow.Field;
 import eu.extremexp.emf.model.workflow.Group;
 import eu.extremexp.emf.model.workflow.Inclusive;
 import eu.extremexp.emf.model.workflow.InputData;
-import eu.extremexp.emf.model.workflow.IntentRef;
+import eu.extremexp.emf.model.workflow.Interaction;
 import eu.extremexp.emf.model.workflow.Join;
 import eu.extremexp.emf.model.workflow.Link;
 import eu.extremexp.emf.model.workflow.MetaData;
@@ -37,6 +40,7 @@ import eu.extremexp.emf.model.workflow.ParameterType;
 import eu.extremexp.emf.model.workflow.ParameterValue;
 import eu.extremexp.emf.model.workflow.Primitive;
 import eu.extremexp.emf.model.workflow.PrimitiveType;
+import eu.extremexp.emf.model.workflow.RegularControlLink;
 import eu.extremexp.emf.model.workflow.RegularLink;
 import eu.extremexp.emf.model.workflow.Structure;
 import eu.extremexp.emf.model.workflow.SubstitutedTask;
@@ -294,21 +298,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass intentRefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass controlEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass experimentationSpaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,7 +319,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass controlElementEClass = null;
+	private EClass controlNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -357,6 +347,55 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass experimentStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interactionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass experimentSpaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass experimentTaskEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass controlLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass regularControlLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionalControlLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum eventValueEEnum = null;
 
 	/**
@@ -365,13 +404,6 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * @generated
 	 */
 	private EEnum primitiveEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum controlKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1059,6 +1091,15 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getROOT_Experiment() {
+		return (EReference) rootEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCondition() {
 		return conditionEClass;
 	}
@@ -1095,7 +1136,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperiment_Intent() {
+	public EReference getExperiment_Control() {
 		return (EReference) experimentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1104,7 +1145,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperiment_Control() {
+	public EReference getExperiment_Workflow() {
 		return (EReference) experimentEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1113,8 +1154,8 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperiment_Spaces() {
-		return (EReference) experimentEClass.getEStructuralFeatures().get(2);
+	public EAttribute getExperiment_Name() {
+		return (EAttribute) experimentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1122,7 +1163,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperiment_Workflow() {
+	public EReference getExperiment_Steps() {
 		return (EReference) experimentEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1284,24 +1325,6 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIntentRef() {
-		return intentRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntentRef_Ref() {
-		return (EAttribute) intentRefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getControl() {
 		return controlEClass;
 	}
@@ -1311,71 +1334,17 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getControl_Kind() {
-		return (EAttribute) controlEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getControl_Control() {
+		return (EReference) controlEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControl_Links() {
 		return (EReference) controlEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getExperimentationSpace() {
-		return experimentationSpaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExperimentationSpace_Name() {
-		return (EAttribute) experimentationSpaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getExperimentationSpace_Worflow() {
-		return (EReference) experimentationSpaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExperimentationSpace_Strategy() {
-		return (EAttribute) experimentationSpaceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getExperimentationSpace_Parameters() {
-		return (EReference) experimentationSpaceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getExperimentationSpace_Configurations() {
-		return (EReference) experimentationSpaceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1419,7 +1388,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskConfiguration_Parameters() {
+	public EReference getTaskConfiguration_Task() {
 		return (EReference) taskConfigurationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1428,7 +1397,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskConfiguration_Task() {
+	public EReference getTaskConfiguration_ParameterValues() {
 		return (EReference) taskConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1437,8 +1406,8 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getControlElement() {
-		return controlElementEClass;
+	public EClass getControlNode() {
+		return controlNodeEClass;
 	}
 
 	/**
@@ -1446,17 +1415,8 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getControlElement_Space() {
-		return (EReference) controlElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getControlElement_Next() {
-		return (EReference) controlElementEClass.getEStructuralFeatures().get(1);
+	public EReference getControlNode_Space() {
+		return (EReference) controlNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1545,6 +1505,150 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExperimentStep() {
+		return experimentStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExperimentStep_Name() {
+		return (EAttribute) experimentStepEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInteraction() {
+		return interactionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteraction_Taskspecification() {
+		return (EReference) interactionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExperimentSpace() {
+		return experimentSpaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExperimentSpace_Strategy() {
+		return (EAttribute) experimentSpaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExperimentSpace_Assembledworflow() {
+		return (EReference) experimentSpaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExperimentSpace_TaskConfiguration() {
+		return (EReference) experimentSpaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExperimentSpace_Parametervalue() {
+		return (EReference) experimentSpaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExperimentTask() {
+		return experimentTaskEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExperimentTask_Task() {
+		return (EReference) experimentTaskEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getControlLink() {
+		return controlLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlLink_Input() {
+		return (EReference) controlLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlLink_Output() {
+		return (EReference) controlLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRegularControlLink() {
+		return regularControlLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConditionalControlLink() {
+		return conditionalControlLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEventValue() {
 		return eventValueEEnum;
 	}
@@ -1556,15 +1660,6 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 */
 	public EEnum getPrimitive() {
 		return primitiveEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getControlKind() {
-		return controlKindEEnum;
 	}
 
 	/**
@@ -1705,16 +1800,17 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		createEAttribute(rootEClass, ROOT__NAME);
 		createEReference(rootEClass, ROOT__PARAMETERTYPES);
 		createEReference(rootEClass, ROOT__WORKFLOW);
+		createEReference(rootEClass, ROOT__EXPERIMENT);
 
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__CONDITION);
 		createEReference(conditionEClass, CONDITION__CASES);
 
 		experimentEClass = createEClass(EXPERIMENT);
-		createEReference(experimentEClass, EXPERIMENT__INTENT);
 		createEReference(experimentEClass, EXPERIMENT__CONTROL);
-		createEReference(experimentEClass, EXPERIMENT__SPACES);
 		createEReference(experimentEClass, EXPERIMENT__WORKFLOW);
+		createEAttribute(experimentEClass, EXPERIMENT__NAME);
+		createEReference(experimentEClass, EXPERIMENT__STEPS);
 
 		caseEClass = createEClass(CASE);
 		createEAttribute(caseEClass, CASE__CASE);
@@ -1738,31 +1834,20 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		createEReference(taskSpecificationEClass, TASK_SPECIFICATION__METRICS);
 		createEReference(taskSpecificationEClass, TASK_SPECIFICATION__PARAMETERS);
 
-		intentRefEClass = createEClass(INTENT_REF);
-		createEAttribute(intentRefEClass, INTENT_REF__REF);
-
 		controlEClass = createEClass(CONTROL);
-		createEAttribute(controlEClass, CONTROL__KIND);
 		createEReference(controlEClass, CONTROL__CONTROL);
-
-		experimentationSpaceEClass = createEClass(EXPERIMENTATION_SPACE);
-		createEAttribute(experimentationSpaceEClass, EXPERIMENTATION_SPACE__NAME);
-		createEReference(experimentationSpaceEClass, EXPERIMENTATION_SPACE__WORFLOW);
-		createEAttribute(experimentationSpaceEClass, EXPERIMENTATION_SPACE__STRATEGY);
-		createEReference(experimentationSpaceEClass, EXPERIMENTATION_SPACE__PARAMETERS);
-		createEReference(experimentationSpaceEClass, EXPERIMENTATION_SPACE__CONFIGURATIONS);
+		createEReference(controlEClass, CONTROL__LINKS);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 		createEAttribute(parameterValueEClass, PARAMETER_VALUE__VALUE);
 		createEAttribute(parameterValueEClass, PARAMETER_VALUE__NAME);
 
 		taskConfigurationEClass = createEClass(TASK_CONFIGURATION);
-		createEReference(taskConfigurationEClass, TASK_CONFIGURATION__PARAMETERS);
 		createEReference(taskConfigurationEClass, TASK_CONFIGURATION__TASK);
+		createEReference(taskConfigurationEClass, TASK_CONFIGURATION__PARAMETER_VALUES);
 
-		controlElementEClass = createEClass(CONTROL_ELEMENT);
-		createEReference(controlElementEClass, CONTROL_ELEMENT__SPACE);
-		createEReference(controlElementEClass, CONTROL_ELEMENT__NEXT);
+		controlNodeEClass = createEClass(CONTROL_NODE);
+		createEReference(controlNodeEClass, CONTROL_NODE__SPACE);
 
 		dataLinkEClass = createEClass(DATA_LINK);
 		createEReference(dataLinkEClass, DATA_LINK__INPUTDATA);
@@ -1776,10 +1861,32 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		valueConstraintEClass = createEClass(VALUE_CONSTRAINT);
 		createEAttribute(valueConstraintEClass, VALUE_CONSTRAINT__CONSTRAINT);
 
+		experimentStepEClass = createEClass(EXPERIMENT_STEP);
+		createEAttribute(experimentStepEClass, EXPERIMENT_STEP__NAME);
+
+		interactionEClass = createEClass(INTERACTION);
+		createEReference(interactionEClass, INTERACTION__TASKSPECIFICATION);
+
+		experimentSpaceEClass = createEClass(EXPERIMENT_SPACE);
+		createEAttribute(experimentSpaceEClass, EXPERIMENT_SPACE__STRATEGY);
+		createEReference(experimentSpaceEClass, EXPERIMENT_SPACE__ASSEMBLEDWORFLOW);
+		createEReference(experimentSpaceEClass, EXPERIMENT_SPACE__TASK_CONFIGURATION);
+		createEReference(experimentSpaceEClass, EXPERIMENT_SPACE__PARAMETERVALUE);
+
+		experimentTaskEClass = createEClass(EXPERIMENT_TASK);
+		createEReference(experimentTaskEClass, EXPERIMENT_TASK__TASK);
+
+		controlLinkEClass = createEClass(CONTROL_LINK);
+		createEReference(controlLinkEClass, CONTROL_LINK__INPUT);
+		createEReference(controlLinkEClass, CONTROL_LINK__OUTPUT);
+
+		regularControlLinkEClass = createEClass(REGULAR_CONTROL_LINK);
+
+		conditionalControlLinkEClass = createEClass(CONDITIONAL_CONTROL_LINK);
+
 		// Create enums
 		eventValueEEnum = createEEnum(EVENT_VALUE);
 		primitiveEEnum = createEEnum(PRIMITIVE);
-		controlKindEEnum = createEEnum(CONTROL_KIND);
 		metricKindEEnum = createEEnum(METRIC_KIND);
 
 		// Create data types
@@ -1831,6 +1938,11 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		assembledWorflowEClass.getESuperTypes().add(this.getWorkflow());
 		compositeWorkflowEClass.getESuperTypes().add(this.getWorkflow());
 		taskSpecificationEClass.getESuperTypes().add(this.getWorkflow());
+		interactionEClass.getESuperTypes().add(this.getExperimentStep());
+		experimentSpaceEClass.getESuperTypes().add(this.getExperimentStep());
+		experimentTaskEClass.getESuperTypes().add(this.getExperimentStep());
+		regularControlLinkEClass.getESuperTypes().add(this.getControlLink());
+		conditionalControlLinkEClass.getESuperTypes().add(this.getControlLink());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workflowEClass, Workflow.class, "Workflow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2005,6 +2117,9 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		initEReference(getROOT_Workflow(), this.getWorkflow(), null, "workflow", null, 0, -1,
 				eu.extremexp.emf.model.workflow.ROOT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getROOT_Experiment(), this.getExperiment(), null, "experiment", null, 0, 1,
+				eu.extremexp.emf.model.workflow.ROOT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2016,17 +2131,16 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		initEClass(experimentEClass, Experiment.class, "Experiment", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExperiment_Intent(), this.getIntentRef(), null, "intent", null, 1, 1, Experiment.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperiment_Control(), this.getControl(), null, "control", null, 1, 1, Experiment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperiment_Spaces(), this.getExperimentationSpace(), null, "spaces", null, 0, -1,
-				Experiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperiment_Workflow(), this.getWorkflow(), null, "workflow", null, 1, 1, Experiment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExperiment_Name(), ecorePackage.getEString(), "name", null, 0, 1, Experiment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperiment_Steps(), this.getExperimentStep(), null, "steps", null, 0, -1, Experiment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(caseEClass, Case.class, "Case", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2077,35 +2191,13 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 				TaskSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(intentRefEClass, IntentRef.class, "IntentRef", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntentRef_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, IntentRef.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(controlEClass, Control.class, "Control", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getControl_Kind(), this.getControlKind(), "kind", null, 0, 1, Control.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControl_Control(), this.getControlElement(), null, "control", null, 0, -1, Control.class,
+		initEReference(getControl_Control(), this.getControlNode(), null, "control", null, 0, -1, Control.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(experimentationSpaceEClass, ExperimentationSpace.class, "ExperimentationSpace", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExperimentationSpace_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-				ExperimentationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEReference(getControl_Links(), this.getControlLink(), null, "links", null, 0, 1, Control.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperimentationSpace_Worflow(), this.getAssembledWorflow(), null, "worflow", null, 0, 1,
-				ExperimentationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExperimentationSpace_Strategy(), ecorePackage.getEString(), "strategy", null, 0, 1,
-				ExperimentationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperimentationSpace_Parameters(), this.getParameterValue(), null, "parameters", null, 0, -1,
-				ExperimentationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperimentationSpace_Configurations(), this.getTaskConfiguration(), null, "configurations",
-				null, 0, -1, ExperimentationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2116,21 +2208,18 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		initEClass(taskConfigurationEClass, TaskConfiguration.class, "TaskConfiguration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTaskConfiguration_Parameters(), this.getParameterValue(), null, "parameters", null, 0, -1,
-				TaskConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskConfiguration_Task(), this.getTask(), null, "task", null, 1, 1, TaskConfiguration.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskConfiguration_ParameterValues(), this.getParameterValue(), null, "parameterValues", null,
+				0, 1, TaskConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(controlElementEClass, ControlElement.class, "ControlElement", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(controlNodeEClass, ControlNode.class, "ControlNode", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getControlElement_Space(), this.getExperimentationSpace(), null, "space", null, 1, 1,
-				ControlElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControlElement_Next(), this.getControlElement(), null, "next", null, 0, -1,
-				ControlElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlNode_Space(), this.getExperimentSpace(), null, "space", null, 0, 1, ControlNode.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataLinkEClass, DataLink.class, "DataLink", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2158,6 +2247,53 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 				ValueConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEClass(experimentStepEClass, ExperimentStep.class, "ExperimentStep", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExperimentStep_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExperimentStep.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(interactionEClass, Interaction.class, "Interaction", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInteraction_Taskspecification(), this.getTaskSpecification(), null, "taskspecification", null,
+				0, 1, Interaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(experimentSpaceEClass, ExperimentSpace.class, "ExperimentSpace", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExperimentSpace_Strategy(), ecorePackage.getEString(), "strategy", null, 0, 1,
+				ExperimentSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentSpace_Assembledworflow(), this.getAssembledWorflow(), null, "assembledworflow",
+				null, 0, 1, ExperimentSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentSpace_TaskConfiguration(), this.getTaskConfiguration(), null, "taskConfiguration",
+				null, 0, -1, ExperimentSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentSpace_Parametervalue(), this.getParameterValue(), null, "parametervalue", null, 0,
+				1, ExperimentSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(experimentTaskEClass, ExperimentTask.class, "ExperimentTask", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExperimentTask_Task(), this.getTask(), null, "task", null, 0, 1, ExperimentTask.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(controlLinkEClass, ControlLink.class, "ControlLink", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControlLink_Input(), this.getControlNode(), null, "input", null, 1, 1, ControlLink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlLink_Output(), this.getControlNode(), null, "output", null, 1, 1, ControlLink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(regularControlLinkEClass, RegularControlLink.class, "RegularControlLink", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(conditionalControlLinkEClass, ConditionalControlLink.class, "ConditionalControlLink", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(eventValueEEnum, EventValue.class, "EventValue");
 		addEEnumLiteral(eventValueEEnum, EventValue.START);
@@ -2168,10 +2304,6 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		addEEnumLiteral(primitiveEEnum, Primitive.BOOLEAN);
 		addEEnumLiteral(primitiveEEnum, Primitive.STRING);
 		addEEnumLiteral(primitiveEEnum, Primitive.BLOB);
-
-		initEEnum(controlKindEEnum, ControlKind.class, "ControlKind");
-		addEEnumLiteral(controlKindEEnum, ControlKind.AUTOMATED);
-		addEEnumLiteral(controlKindEEnum, ControlKind.EXPLICIT);
 
 		initEEnum(metricKindEEnum, MetricKind.class, "MetricKind");
 		addEEnumLiteral(metricKindEEnum, MetricKind.SERIES);

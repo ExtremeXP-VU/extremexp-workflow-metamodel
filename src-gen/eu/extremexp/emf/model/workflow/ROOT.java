@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eu.extremexp.emf.model.workflow.ROOT#getName <em>Name</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.ROOT#getParametertypes <em>Parametertypes</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.ROOT#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.ROOT#getExperiment <em>Experiment</em>}</li>
  * </ul>
  *
  * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getROOT()
@@ -83,5 +84,27 @@ public interface ROOT extends EObject {
 	 * @generated
 	 */
 	EList<Workflow> getWorkflow();
+
+	/**
+	 * Returns the value of the '<em><b>Experiment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Experiment</em>' containment reference.
+	 * @see #setExperiment(Experiment)
+	 * @see eu.extremexp.emf.model.workflow.WorkflowPackage#getROOT_Experiment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Experiment getExperiment();
+
+	/**
+	 * Sets the value of the '{@link eu.extremexp.emf.model.workflow.ROOT#getExperiment <em>Experiment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Experiment</em>' containment reference.
+	 * @see #getExperiment()
+	 * @generated
+	 */
+	void setExperiment(Experiment value);
 
 } // ROOT

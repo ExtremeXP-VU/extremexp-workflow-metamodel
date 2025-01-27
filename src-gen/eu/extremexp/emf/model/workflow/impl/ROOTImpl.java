@@ -2,6 +2,7 @@
  */
 package eu.extremexp.emf.model.workflow.impl;
 
+import eu.extremexp.emf.model.workflow.Experiment;
 import eu.extremexp.emf.model.workflow.Group;
 import eu.extremexp.emf.model.workflow.ParameterType;
 import eu.extremexp.emf.model.workflow.ROOT;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link eu.extremexp.emf.model.workflow.impl.ROOTImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.impl.ROOTImpl#getParametertypes <em>Parametertypes</em>}</li>
  *   <li>{@link eu.extremexp.emf.model.workflow.impl.ROOTImpl#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link eu.extremexp.emf.model.workflow.impl.ROOTImpl#getExperiment <em>Experiment</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +92,16 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 	 * @ordered
 	 */
 	protected EList<Workflow> workflow;
+
+	/**
+	 * The cached value of the '{@link #getExperiment() <em>Experiment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExperiment()
+	 * @generated
+	 * @ordered
+	 */
+	protected Experiment experiment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +185,56 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Experiment getExperiment() {
+		return experiment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExperiment(Experiment newExperiment, NotificationChain msgs) {
+		Experiment oldExperiment = experiment;
+		experiment = newExperiment;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					WorkflowPackage.ROOT__EXPERIMENT, oldExperiment, newExperiment);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExperiment(Experiment newExperiment) {
+		if (newExperiment != experiment) {
+			NotificationChain msgs = null;
+			if (experiment != null)
+				msgs = ((InternalEObject) experiment).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - WorkflowPackage.ROOT__EXPERIMENT, null, msgs);
+			if (newExperiment != null)
+				msgs = ((InternalEObject) newExperiment).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - WorkflowPackage.ROOT__EXPERIMENT, null, msgs);
+			msgs = basicSetExperiment(newExperiment, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.ROOT__EXPERIMENT, newExperiment,
+					newExperiment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +244,8 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 			return ((InternalEList<?>) getParametertypes()).basicRemove(otherEnd, msgs);
 		case WorkflowPackage.ROOT__WORKFLOW:
 			return ((InternalEList<?>) getWorkflow()).basicRemove(otherEnd, msgs);
+		case WorkflowPackage.ROOT__EXPERIMENT:
+			return basicSetExperiment(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,6 +266,8 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 			return getParametertypes();
 		case WorkflowPackage.ROOT__WORKFLOW:
 			return getWorkflow();
+		case WorkflowPackage.ROOT__EXPERIMENT:
+			return getExperiment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,6 +296,9 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 			getWorkflow().clear();
 			getWorkflow().addAll((Collection<? extends Workflow>) newValue);
 			return;
+		case WorkflowPackage.ROOT__EXPERIMENT:
+			setExperiment((Experiment) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +323,9 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 		case WorkflowPackage.ROOT__WORKFLOW:
 			getWorkflow().clear();
 			return;
+		case WorkflowPackage.ROOT__EXPERIMENT:
+			setExperiment((Experiment) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +346,8 @@ public class ROOTImpl extends MinimalEObjectImpl.Container implements ROOT {
 			return parametertypes != null && !parametertypes.isEmpty();
 		case WorkflowPackage.ROOT__WORKFLOW:
 			return workflow != null && !workflow.isEmpty();
+		case WorkflowPackage.ROOT__EXPERIMENT:
+			return experiment != null;
 		}
 		return super.eIsSet(featureID);
 	}

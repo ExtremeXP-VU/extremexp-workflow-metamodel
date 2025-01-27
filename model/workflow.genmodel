@@ -22,10 +22,6 @@
       <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//Primitive/STRING"/>
       <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//Primitive/BLOB"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="workflow.ecore#//ControlKind">
-      <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//ControlKind/AUTOMATED"/>
-      <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//ControlKind/EXPLICIT"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="workflow.ecore#//MetricKind">
       <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//MetricKind/SERIES"/>
       <genEnumLiterals ecoreEnumLiteral="workflow.ecore#//MetricKind/SCALAR"/>
@@ -117,16 +113,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ROOT/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ROOT/parametertypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ROOT/workflow"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ROOT/experiment"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Condition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Condition/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/cases"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Experiment">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Experiment/intent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Experiment/control"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Experiment/spaces"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Experiment/workflow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Experiment/name"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Experiment/steps"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Case">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Case/case"/>
@@ -150,31 +147,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//TaskSpecification/metrics"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//TaskSpecification/parameters"/>
     </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//IntentRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//IntentRef/ref"/>
-    </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Control">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Control/kind"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Control/control"/>
-    </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//ExperimentationSpace">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ExperimentationSpace/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentationSpace/worflow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ExperimentationSpace/strategy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentationSpace/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentationSpace/configurations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Control/links"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//ParameterValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ParameterValue/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ParameterValue/name"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//TaskConfiguration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//TaskConfiguration/parameters"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//TaskConfiguration/task"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//TaskConfiguration/parameterValues"/>
     </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//ControlElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ControlElement/space"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ControlElement/next"/>
+    <genClasses ecoreClass="workflow.ecore#//ControlNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ControlNode/space"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//DataLink">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//DataLink/inputdata"/>
@@ -188,5 +174,26 @@
     <genClasses ecoreClass="workflow.ecore#//ValueConstraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ValueConstraint/constraint"/>
     </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//ExperimentStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ExperimentStep/name"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Interaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Interaction/taskspecification"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//ExperimentSpace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ExperimentSpace/strategy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentSpace/assembledworflow"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentSpace/taskConfiguration"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentSpace/parametervalue"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//ExperimentTask">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ExperimentTask/task"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//ControlLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ControlLink/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//ControlLink/output"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//RegularControlLink"/>
+    <genClasses ecoreClass="workflow.ecore#//ConditionalControlLink"/>
   </genPackages>
 </genmodel:GenModel>
